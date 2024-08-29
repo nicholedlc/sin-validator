@@ -4,6 +4,6 @@
   import TextInput from "../components/TextInput.svelte";
 </script>
 
-<Card title="Validate your SIN">
+<Card title="Enter your SIN to validate">
   <TextInput />
 </Card>
