@@ -8,3 +8,10 @@
     color: #dcb;
   }
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    background-color: theme(colors.gray.100);
+    color: #dcb;
+  }
+}

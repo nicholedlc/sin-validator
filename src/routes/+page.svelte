@@ -1,8 +1,12 @@
-<script lang="ts">
+<script module lang="ts">
   import "../app.css";
   import { luhnCheck } from "$lib/luhnCheck";
   import type { FormEventHandler } from "svelte/elements";
 
+  import Card from "../components/Card.svelte";
+</script>
+
+<script lang="ts">
   let text = $state("");
   let isValidSIN = $derived(text.length === 9 && luhnCheck(text));
   const initialClass =
@@ -43,34 +47,25 @@
   };
 </script>
 
-<div class="flex justify-center items-center h-full">
-  <div
-    class="w-full max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700"
-  >
-    <div class="space-y-6">
-      <h5 class="text-xl font-medium text-gray-900 dark:text-white">
-        Validate your SIN
-      </h5>
-      <div>
-        <label
-          for="sin"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          ><span>Social Insurance Number (SIN)</span>
-          <span>{inputIcon}</span>
-        </label>
-        <input
-          type="sin"
-          name="sin"
-          id="sin"
-          oninput={inputHandler}
-          onblur={onBlurHandler}
-          onfocus={onFocusHandler}
-          onkeyup={onKeyupHandler}
-          class={inputStyle}
-          placeholder="121212121"
-          required
-        />
-      </div>
-    </div>
+<Card title="Validate your SIN">
+  <div>
+    <label
+      for="sin"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      ><span>Social Insurance Number (SIN)</span>
+      <span>{inputIcon}</span>
+    </label>
+    <input
+      type="sin"
+      name="sin"
+      id="sin"
+      oninput={inputHandler}
+      onblur={onBlurHandler}
+      onfocus={onFocusHandler}
+      onkeyup={onKeyupHandler}
+      class={inputStyle}
+      placeholder="121212121"
+      required
+    />
   </div>
-</div>
+</Card>
