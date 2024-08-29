@@ -1,6 +1,7 @@
 <script module lang="ts">
   import type { FormEventHandler } from "svelte/elements";
   import { luhnCheck } from "$lib/luhnCheck";
+  import { Confetti } from "svelte-confetti";
 
   export type CardProps = { title?: string };
 </script>
@@ -64,4 +65,7 @@
     placeholder="121212121"
     required
   />
+  {#if isValidSIN}
+    <Confetti xSpread={0.01} />
+  {/if}
 </div>
